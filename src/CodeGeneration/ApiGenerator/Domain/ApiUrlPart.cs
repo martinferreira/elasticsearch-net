@@ -41,8 +41,12 @@ namespace ApiGenerator.Domain
 					case "field":
 					case "fields": return this.Type == "string" ? "Field" : "Fields";
 					case "index_metric": return "IndexMetrics";
-					case "metric": return "Metrics";
+					case "metric":
+					case "watcher_stats_metric":
+						return "Metrics";
 					case "feature": return "Features";
+					case "watch_id": return "WatchId";
+					case "action_id": return "ActionIds";
 					case "repository":
 					case "snapshot":
 					case "lang":
@@ -69,6 +73,27 @@ namespace ApiGenerator.Domain
 				{
 					case "repository": return "RepositoryName";
 					default: return this.Name.ToPascalCase();
+				}
+			}
+		}
+
+		public string Argument
+		{
+			get
+			{
+				switch (this.Type)
+				{
+					case "int":
+					case "string":
+						return this.Type + " " + this.Name;
+					case "list":
+						return "string " + this.Name;
+					case "enum":
+						return ApiGenerator.PascalCase(this.Name) + " " + this.Name;
+					case "number":
+						return "string " + this.Name;
+					default:
+						return this.Type + " " + this.Name;
 				}
 			}
 		}

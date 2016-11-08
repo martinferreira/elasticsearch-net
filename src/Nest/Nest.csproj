@@ -408,6 +408,7 @@
     <Compile Include="CommonAbstractions\Fluent\FluentDictionary.cs" />
     <Compile Include="CommonAbstractions\Fluent\Promise\DescriptorPromiseBase.cs" />
     <Compile Include="CommonAbstractions\ForAttribute.cs" />
+    <Compile Include="CommonAbstractions\Infer\ActionIds\ActionIds.cs" />
     <Compile Include="CommonAbstractions\Infer\DocumentPath\DocumentPath.cs" />
     <Compile Include="CommonAbstractions\Infer\Features\Features.cs" />
     <Compile Include="CommonAbstractions\Infer\Features\FeaturesJsonConverter.cs" />
@@ -447,6 +448,7 @@
     <Compile Include="CommonAbstractions\Infer\Types\Types.cs" />
     <Compile Include="CommonAbstractions\Infer\Types\TypesJsonConverter.cs" />
     <Compile Include="CommonAbstractions\Infer\Types\TypesMultiSyntaxJsonConverter.cs" />
+    <Compile Include="CommonAbstractions\Infer\WatchId\WatchId.cs" />
     <Compile Include="CommonAbstractions\LazyDocument\LazyDocument.cs" />
     <Compile Include="CommonAbstractions\LazyDocument\LazyDocumentJsonConverter.cs" />
     <Compile Include="CommonAbstractions\LowLevelDispatch\IHighLevelToLowLevelDispatcher.cs" />
@@ -1317,6 +1319,17 @@
     <Compile Include="XPack\Security\User\PutUser\PutUserRequest.cs" />
     <Compile Include="XPack\Security\User\PutUser\PutUserResponse.cs" />
     <Compile Include="XPack\Security\User\PutUser\ElasticClient-PutUser.cs" />
+    <Compile Include="XPack\Watcher\AcknowledgeWatch\AcknowledgeWatchRequest.cs" />
+    <Compile Include="XPack\Watcher\ActivateWatch\ActivateWatchRequest.cs" />
+    <Compile Include="XPack\Watcher\DeactivateWatch\DeactivateWatchRequest.cs" />
+    <Compile Include="XPack\Watcher\DeleteWatch\DeleteWatchRequest.cs" />
+    <Compile Include="XPack\Watcher\ExecuteWatch\ExecuteWatchRequest.cs" />
+    <Compile Include="XPack\Watcher\GetWatch\GetWatchRequest.cs" />
+    <Compile Include="XPack\Watcher\PutWatch\PutWatchRequest.cs" />
+    <Compile Include="XPack\Watcher\RestartWatcher\RestartWatcherRequest.cs" />
+    <Compile Include="XPack\Watcher\StartWatcher\StartWatcherRequest.cs" />
+    <Compile Include="XPack\Watcher\Stats\WatcherStatsRequest.cs" />
+    <Compile Include="XPack\Watcher\StopWatcher\StopWatcherRequest.cs" />
     <Compile Include="_Generated\_Descriptors.generated.cs" />
     <Compile Include="_Generated\_LowLevelDispatch.generated.cs" />
     <Compile Include="_Generated\_RequestParametersExtensions.Generated.cs" />
@@ -1348,6 +1361,7 @@
   <ItemGroup>
     <None Include="paket.references" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="..\outputpath.props" />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\.paket\paket.targets" />
