@@ -18,24 +18,50 @@ namespace Nest
 	[JsonObject(MemberSerialization = MemberSerialization.OptIn)]
 	public partial interface IAcknowledgeWatchRequest : IRequest<AcknowledgeWatchRequestParameters> 
 	{
-		WatchId WatchId { get; }
+		Id WatchId { get; }
 		ActionIds ActionId { get; }
 	 } 
 	///<summary>Request parameters for XpackWatcherAckWatch <pre>http://www.elastic.co/guide/en/watcher/current/appendix-api-ack-watch.html</pre></summary>
 	public partial class AcknowledgeWatchRequest  : PlainRequestBase<AcknowledgeWatchRequestParameters>, IAcknowledgeWatchRequest
 	{
 		protected IAcknowledgeWatchRequest Self => this;
-		WatchId IAcknowledgeWatchRequest.WatchId => Self.RouteValues.Get<WatchId>("watch_id");
+		Id IAcknowledgeWatchRequest.WatchId => Self.RouteValues.Get<Id>("watch_id");
 		ActionIds IAcknowledgeWatchRequest.ActionId => Self.RouteValues.Get<ActionIds>("action_id");
 			/// <summary>/_xpack/watcher/watch/{watch_id}/_ack</summary>
 ///<param name="watch_id">this parameter is required</param>
-		public AcknowledgeWatchRequest(WatchId watch_id) : base(r=>r.Required("watch_id", watch_id)){}
+		public AcknowledgeWatchRequest(Id watch_id) : base(r=>r.Required("watch_id", watch_id)){}
 		
 
 		/// <summary>/_xpack/watcher/watch/{watch_id}/_ack/{action_id}</summary>
 ///<param name="watch_id">this parameter is required</param>		
 ///<param name="action_id">Optional, accepts null</param>
-		public AcknowledgeWatchRequest(WatchId watch_id, ActionIds action_id) : base(r=>r.Required("watch_id", watch_id).Optional("action_id", action_id)){}
+		public AcknowledgeWatchRequest(Id watch_id, ActionIds action_id) : base(r=>r.Required("watch_id", watch_id).Optional("action_id", action_id)){}
+		
+
+			///<summary>Explicit operation timeout for connection to master node</summary>
+		public Time MasterTimeout { get { return Q<Time>("master_timeout"); } set { Q("master_timeout", value.ToString()); } }
+		
+		///<summary>The URL-encoded request definition</summary>
+		public string Source { get { return Q<string>("source"); } set { Q("source", value); } }
+		
+		///<summary>Comma separated list of filters used to reduce the response returned by Elasticsearch</summary>
+		public string FilterPath { get { return Q<string>("filter_path"); } set { Q("filter_path", value); } }
+		
+		}
+	
+	[JsonObject(MemberSerialization = MemberSerialization.OptIn)]
+	public partial interface IActivateWatchRequest : IRequest<ActivateWatchRequestParameters> 
+	{
+		Id WatchId { get; }
+	 } 
+	///<summary>Request parameters for XpackWatcherActivateWatch <pre>https://www.elastic.co/guide/en/watcher/current/api-rest.html#api-rest-activate-watch</pre></summary>
+	public partial class ActivateWatchRequest  : PlainRequestBase<ActivateWatchRequestParameters>, IActivateWatchRequest
+	{
+		protected IActivateWatchRequest Self => this;
+		Id IActivateWatchRequest.WatchId => Self.RouteValues.Get<Id>("watch_id");
+			/// <summary>/_xpack/watcher/watch/{watch_id}/_activate</summary>
+///<param name="watch_id">this parameter is required</param>
+		public ActivateWatchRequest(Id watch_id) : base(r=>r.Required("watch_id", watch_id)){}
 		
 
 			///<summary>Explicit operation timeout for connection to master node</summary>
@@ -4804,6 +4830,35 @@ namespace Nest
 		}
 	
 	[JsonObject(MemberSerialization = MemberSerialization.OptIn)]
+	public partial interface IPutWatchRequest : IRequest<PutWatchRequestParameters> 
+	{
+		Id Id { get; }
+	 } 
+	///<summary>Request parameters for XpackWatcherPutWatch <pre>http://www.elastic.co/guide/en/watcher/current/appendix-api-put-watch.html</pre></summary>
+	public partial class PutWatchRequest  : PlainRequestBase<PutWatchRequestParameters>, IPutWatchRequest
+	{
+		protected IPutWatchRequest Self => this;
+		Id IPutWatchRequest.Id => Self.RouteValues.Get<Id>("id");
+			/// <summary>/_xpack/watcher/watch/{id}</summary>
+///<param name="id">this parameter is required</param>
+		public PutWatchRequest(Id id) : base(r=>r.Required("id", id)){}
+		
+
+			///<summary>Explicit operation timeout for connection to master node</summary>
+		public Time MasterTimeout { get { return Q<Time>("master_timeout"); } set { Q("master_timeout", value.ToString()); } }
+		
+		///<summary>Specify whether the watch is in/active by default</summary>
+		public bool Active { get { return Q<bool>("active"); } set { Q("active", value); } }
+		
+		///<summary>The URL-encoded request definition</summary>
+		public string Source { get { return Q<string>("source"); } set { Q("source", value); } }
+		
+		///<summary>Comma separated list of filters used to reduce the response returned by Elasticsearch</summary>
+		public string FilterPath { get { return Q<string>("filter_path"); } set { Q("filter_path", value); } }
+		
+		}
+	
+	[JsonObject(MemberSerialization = MemberSerialization.OptIn)]
 	public partial interface IRecoveryStatusRequest : IRequest<RecoveryStatusRequestParameters> 
 	{
 		Indices Index { get; }
@@ -6693,46 +6748,18 @@ namespace Nest
 		}
 	
 	[JsonObject(MemberSerialization = MemberSerialization.OptIn)]
-	public partial interface IXpackWatcherActivateWatchRequest : IRequest<XpackWatcherActivateWatchRequestParameters> 
-	{
-		WatchId WatchId { get; }
-	 } 
-	///<summary>Request parameters for XpackWatcherActivateWatch <pre>https://www.elastic.co/guide/en/watcher/current/api-rest.html#api-rest-activate-watch</pre></summary>
-	public partial class XpackWatcherActivateWatchRequest  : PlainRequestBase<XpackWatcherActivateWatchRequestParameters>, IXpackWatcherActivateWatchRequest
-	{
-		protected IXpackWatcherActivateWatchRequest Self => this;
-		WatchId IXpackWatcherActivateWatchRequest.WatchId => Self.RouteValues.Get<WatchId>("watch_id");
-			/// <summary>/_xpack/watcher/watch/{watch_id}/_activate</summary>
-///<param name="watch_id">this parameter is required</param>
-		public XpackWatcherActivateWatchRequest(WatchId watch_id) : base(r=>r.Required("watch_id", watch_id)){}
-		
-
-			///<summary>Explicit operation timeout for connection to master node</summary>
-		public Time MasterTimeout { get { return Q<Time>("master_timeout"); } set { Q("master_timeout", value.ToString()); } }
-		
-		///<summary>The URL-encoded request definition</summary>
-		public string Source { get { return Q<string>("source"); } set { Q("source", value); } }
-		
-		///<summary>Comma separated list of filters used to reduce the response returned by Elasticsearch</summary>
-		public string FilterPath { get { return Q<string>("filter_path"); } set { Q("filter_path", value); } }
-		
-		//TODO THIS METHOD IS UNMAPPED!
-	
-	}
-	
-	[JsonObject(MemberSerialization = MemberSerialization.OptIn)]
 	public partial interface IXpackWatcherDeactivateWatchRequest : IRequest<XpackWatcherDeactivateWatchRequestParameters> 
 	{
-		WatchId WatchId { get; }
+		Id WatchId { get; }
 	 } 
 	///<summary>Request parameters for XpackWatcherDeactivateWatch <pre>https://www.elastic.co/guide/en/watcher/current/api-rest.html#api-rest-deactivate-watch</pre></summary>
 	public partial class XpackWatcherDeactivateWatchRequest  : PlainRequestBase<XpackWatcherDeactivateWatchRequestParameters>, IXpackWatcherDeactivateWatchRequest
 	{
 		protected IXpackWatcherDeactivateWatchRequest Self => this;
-		WatchId IXpackWatcherDeactivateWatchRequest.WatchId => Self.RouteValues.Get<WatchId>("watch_id");
+		Id IXpackWatcherDeactivateWatchRequest.WatchId => Self.RouteValues.Get<Id>("watch_id");
 			/// <summary>/_xpack/watcher/watch/{watch_id}/_deactivate</summary>
 ///<param name="watch_id">this parameter is required</param>
-		public XpackWatcherDeactivateWatchRequest(WatchId watch_id) : base(r=>r.Required("watch_id", watch_id)){}
+		public XpackWatcherDeactivateWatchRequest(Id watch_id) : base(r=>r.Required("watch_id", watch_id)){}
 		
 
 			///<summary>Explicit operation timeout for connection to master node</summary>
@@ -6824,37 +6851,6 @@ namespace Nest
 		
 
 			///<summary>The URL-encoded request definition</summary>
-		public string Source { get { return Q<string>("source"); } set { Q("source", value); } }
-		
-		///<summary>Comma separated list of filters used to reduce the response returned by Elasticsearch</summary>
-		public string FilterPath { get { return Q<string>("filter_path"); } set { Q("filter_path", value); } }
-		
-		//TODO THIS METHOD IS UNMAPPED!
-	
-	}
-	
-	[JsonObject(MemberSerialization = MemberSerialization.OptIn)]
-	public partial interface IXpackWatcherPutWatchRequest : IRequest<XpackWatcherPutWatchRequestParameters> 
-	{
-		Id Id { get; }
-	 } 
-	///<summary>Request parameters for XpackWatcherPutWatch <pre>http://www.elastic.co/guide/en/watcher/current/appendix-api-put-watch.html</pre></summary>
-	public partial class XpackWatcherPutWatchRequest  : PlainRequestBase<XpackWatcherPutWatchRequestParameters>, IXpackWatcherPutWatchRequest
-	{
-		protected IXpackWatcherPutWatchRequest Self => this;
-		Id IXpackWatcherPutWatchRequest.Id => Self.RouteValues.Get<Id>("id");
-			/// <summary>/_xpack/watcher/watch/{id}</summary>
-///<param name="id">this parameter is required</param>
-		public XpackWatcherPutWatchRequest(Id id) : base(r=>r.Required("id", id)){}
-		
-
-			///<summary>Explicit operation timeout for connection to master node</summary>
-		public Time MasterTimeout { get { return Q<Time>("master_timeout"); } set { Q("master_timeout", value.ToString()); } }
-		
-		///<summary>Specify whether the watch is in/active by default</summary>
-		public bool Active { get { return Q<bool>("active"); } set { Q("active", value); } }
-		
-		///<summary>The URL-encoded request definition</summary>
 		public string Source { get { return Q<string>("source"); } set { Q("source", value); } }
 		
 		///<summary>Comma separated list of filters used to reduce the response returned by Elasticsearch</summary>

@@ -9143,7 +9143,7 @@ namespace Elasticsearch.Net
 	    ///</summary>
 		///<param name="watch_id">Watch ID</param>
 		///<param name="requestParameters">A func that allows you to describe the querystring parameters &amp; request specific connection settings.</param>
-		public ElasticsearchResponse<T> XpackWatcherActivateWatch<T>(string watch_id, Func<XpackWatcherActivateWatchRequestParameters, XpackWatcherActivateWatchRequestParameters> requestParameters = null)
+		public ElasticsearchResponse<T> XpackWatcherActivateWatch<T>(string watch_id, Func<ActivateWatchRequestParameters, ActivateWatchRequestParameters> requestParameters = null)
 			where T : class => this.DoRequest<T>(PUT, Url($"_xpack/watcher/watch/{watch_id.NotNull("watch_id")}/_activate"), null, _params(requestParameters));
 		
 		///<summary>Represents a PUT on /_xpack/watcher/watch/{watch_id}/_activate
@@ -9157,7 +9157,7 @@ namespace Elasticsearch.Net
 	    ///</summary>
 		///<param name="watch_id">Watch ID</param>
 		///<param name="requestParameters">A func that allows you to describe the querystring parameters &amp; request specific connection settings.</param>
-		public Task<ElasticsearchResponse<T>> XpackWatcherActivateWatchAsync<T>(string watch_id, Func<XpackWatcherActivateWatchRequestParameters, XpackWatcherActivateWatchRequestParameters> requestParameters = null, CancellationToken cancellationToken = default(CancellationToken))
+		public Task<ElasticsearchResponse<T>> XpackWatcherActivateWatchAsync<T>(string watch_id, Func<ActivateWatchRequestParameters, ActivateWatchRequestParameters> requestParameters = null, CancellationToken cancellationToken = default(CancellationToken))
 			where T : class => this.DoRequestAsync<T>(PUT, Url($"_xpack/watcher/watch/{watch_id.NotNull("watch_id")}/_activate"), cancellationToken, null, _params(requestParameters));
 		
 		///<summary>Represents a POST on /_xpack/watcher/watch/{watch_id}/_activate
@@ -9171,7 +9171,7 @@ namespace Elasticsearch.Net
 	    ///</summary>
 		///<param name="watch_id">Watch ID</param>
 		///<param name="requestParameters">A func that allows you to describe the querystring parameters &amp; request specific connection settings.</param>
-		public ElasticsearchResponse<T> XpackWatcherActivateWatchPost<T>(string watch_id, Func<XpackWatcherActivateWatchRequestParameters, XpackWatcherActivateWatchRequestParameters> requestParameters = null)
+		public ElasticsearchResponse<T> XpackWatcherActivateWatchPost<T>(string watch_id, Func<ActivateWatchRequestParameters, ActivateWatchRequestParameters> requestParameters = null)
 			where T : class => this.DoRequest<T>(POST, Url($"_xpack/watcher/watch/{watch_id.NotNull("watch_id")}/_activate"), null, _params(requestParameters));
 		
 		///<summary>Represents a POST on /_xpack/watcher/watch/{watch_id}/_activate
@@ -9185,7 +9185,7 @@ namespace Elasticsearch.Net
 	    ///</summary>
 		///<param name="watch_id">Watch ID</param>
 		///<param name="requestParameters">A func that allows you to describe the querystring parameters &amp; request specific connection settings.</param>
-		public Task<ElasticsearchResponse<T>> XpackWatcherActivateWatchPostAsync<T>(string watch_id, Func<XpackWatcherActivateWatchRequestParameters, XpackWatcherActivateWatchRequestParameters> requestParameters = null, CancellationToken cancellationToken = default(CancellationToken))
+		public Task<ElasticsearchResponse<T>> XpackWatcherActivateWatchPostAsync<T>(string watch_id, Func<ActivateWatchRequestParameters, ActivateWatchRequestParameters> requestParameters = null, CancellationToken cancellationToken = default(CancellationToken))
 			where T : class => this.DoRequestAsync<T>(POST, Url($"_xpack/watcher/watch/{watch_id.NotNull("watch_id")}/_activate"), cancellationToken, null, _params(requestParameters));
 		
 		///<summary>Represents a PUT on /_xpack/watcher/watch/{watch_id}/_deactivate
@@ -9428,7 +9428,7 @@ namespace Elasticsearch.Net
 		///<param name="id">Watch ID</param>
 		///<param name="body">The watch</param>
 		///<param name="requestParameters">A func that allows you to describe the querystring parameters &amp; request specific connection settings.</param>
-		public ElasticsearchResponse<T> XpackWatcherPutWatch<T>(string id, PostData<object> body, Func<XpackWatcherPutWatchRequestParameters, XpackWatcherPutWatchRequestParameters> requestParameters = null)
+		public ElasticsearchResponse<T> XpackWatcherPutWatch<T>(string id, PostData<object> body, Func<PutWatchRequestParameters, PutWatchRequestParameters> requestParameters = null)
 			where T : class => this.DoRequest<T>(PUT, Url($"_xpack/watcher/watch/{id.NotNull("id")}"), body, _params(requestParameters));
 		
 		///<summary>Represents a PUT on /_xpack/watcher/watch/{id}
@@ -9443,7 +9443,7 @@ namespace Elasticsearch.Net
 		///<param name="id">Watch ID</param>
 		///<param name="body">The watch</param>
 		///<param name="requestParameters">A func that allows you to describe the querystring parameters &amp; request specific connection settings.</param>
-		public Task<ElasticsearchResponse<T>> XpackWatcherPutWatchAsync<T>(string id, PostData<object> body, Func<XpackWatcherPutWatchRequestParameters, XpackWatcherPutWatchRequestParameters> requestParameters = null, CancellationToken cancellationToken = default(CancellationToken))
+		public Task<ElasticsearchResponse<T>> XpackWatcherPutWatchAsync<T>(string id, PostData<object> body, Func<PutWatchRequestParameters, PutWatchRequestParameters> requestParameters = null, CancellationToken cancellationToken = default(CancellationToken))
 			where T : class => this.DoRequestAsync<T>(PUT, Url($"_xpack/watcher/watch/{id.NotNull("id")}"), cancellationToken, body, _params(requestParameters));
 		
 		///<summary>Represents a POST on /_xpack/watcher/watch/{id}
@@ -9458,7 +9458,7 @@ namespace Elasticsearch.Net
 		///<param name="id">Watch ID</param>
 		///<param name="body">The watch</param>
 		///<param name="requestParameters">A func that allows you to describe the querystring parameters &amp; request specific connection settings.</param>
-		public ElasticsearchResponse<T> XpackWatcherPutWatchPost<T>(string id, PostData<object> body, Func<XpackWatcherPutWatchRequestParameters, XpackWatcherPutWatchRequestParameters> requestParameters = null)
+		public ElasticsearchResponse<T> XpackWatcherPutWatchPost<T>(string id, PostData<object> body, Func<PutWatchRequestParameters, PutWatchRequestParameters> requestParameters = null)
 			where T : class => this.DoRequest<T>(POST, Url($"_xpack/watcher/watch/{id.NotNull("id")}"), body, _params(requestParameters));
 		
 		///<summary>Represents a POST on /_xpack/watcher/watch/{id}
@@ -9473,7 +9473,7 @@ namespace Elasticsearch.Net
 		///<param name="id">Watch ID</param>
 		///<param name="body">The watch</param>
 		///<param name="requestParameters">A func that allows you to describe the querystring parameters &amp; request specific connection settings.</param>
-		public Task<ElasticsearchResponse<T>> XpackWatcherPutWatchPostAsync<T>(string id, PostData<object> body, Func<XpackWatcherPutWatchRequestParameters, XpackWatcherPutWatchRequestParameters> requestParameters = null, CancellationToken cancellationToken = default(CancellationToken))
+		public Task<ElasticsearchResponse<T>> XpackWatcherPutWatchPostAsync<T>(string id, PostData<object> body, Func<PutWatchRequestParameters, PutWatchRequestParameters> requestParameters = null, CancellationToken cancellationToken = default(CancellationToken))
 			where T : class => this.DoRequestAsync<T>(POST, Url($"_xpack/watcher/watch/{id.NotNull("id")}"), cancellationToken, body, _params(requestParameters));
 		
 		///<summary>Represents a POST on /_xpack/watcher/_restart

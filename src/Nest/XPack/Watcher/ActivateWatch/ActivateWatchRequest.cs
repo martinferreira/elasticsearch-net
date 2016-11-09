@@ -8,7 +8,7 @@
 	{
 	}
 
-	[DescriptorFor("XpackWatcherActivate")]
+	[DescriptorFor("XpackWatcherActivateWatch")]
 	public partial class ActivateWatchDescriptor
 	{
 	}

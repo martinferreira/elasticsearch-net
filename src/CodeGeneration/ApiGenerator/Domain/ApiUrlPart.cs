@@ -35,6 +35,7 @@ namespace ApiGenerator.Domain
 					case "target":
 						return "IndexName";
 					case "type": return this.Type == "string" ? "TypeName" : "Types";
+					case "watch_id":
 					case "id": return this.Type == "string" ? "Id" : "Ids";
 					case "node_id": return this.Type == "string" ? "NodeId" : "NodeIds";
 					case "scroll_id": return this.Type == "string" ? "ScrollId" : "ScrollIds";
@@ -45,7 +46,6 @@ namespace ApiGenerator.Domain
 					case "watcher_stats_metric":
 						return "Metrics";
 					case "feature": return "Features";
-					case "watch_id": return "WatchId";
 					case "action_id": return "ActionIds";
 					case "repository":
 					case "snapshot":

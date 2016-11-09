@@ -5453,11 +5453,11 @@ namespace Nest
 	///<summary>descriptor for XpackWatcherAckWatch <pre>http://www.elastic.co/guide/en/watcher/current/appendix-api-ack-watch.html</pre></summary>
 	public partial class AcknowledgeWatchDescriptor  : RequestDescriptorBase<AcknowledgeWatchDescriptor,AcknowledgeWatchRequestParameters, IAcknowledgeWatchRequest>, IAcknowledgeWatchRequest
 	{ 
-		WatchId IAcknowledgeWatchRequest.WatchId => Self.RouteValues.Get<WatchId>("watch_id");
+		Id IAcknowledgeWatchRequest.WatchId => Self.RouteValues.Get<Id>("watch_id");
 		ActionIds IAcknowledgeWatchRequest.ActionId => Self.RouteValues.Get<ActionIds>("action_id");
 			/// <summary>/_xpack/watcher/watch/{watch_id}/_ack</summary>
 ///<param name="watch_id"> this parameter is required</param>
-		public AcknowledgeWatchDescriptor(WatchId watch_id) : base(r=>r.Required("watch_id", watch_id)){}
+		public AcknowledgeWatchDescriptor(Id watch_id) : base(r=>r.Required("watch_id", watch_id)){}
 		
 
 			///<summary>A comma-separated list of the action ids to be acked</summary>
@@ -5476,36 +5476,33 @@ namespace Nest
 	}
 	
 	///<summary>descriptor for XpackWatcherActivateWatch <pre>https://www.elastic.co/guide/en/watcher/current/api-rest.html#api-rest-activate-watch</pre></summary>
-	public partial class XpackWatcherActivateWatchDescriptor  : RequestDescriptorBase<XpackWatcherActivateWatchDescriptor,XpackWatcherActivateWatchRequestParameters, IXpackWatcherActivateWatchRequest>, IXpackWatcherActivateWatchRequest
+	public partial class ActivateWatchDescriptor  : RequestDescriptorBase<ActivateWatchDescriptor,ActivateWatchRequestParameters, IActivateWatchRequest>, IActivateWatchRequest
 	{ 
-		WatchId IXpackWatcherActivateWatchRequest.WatchId => Self.RouteValues.Get<WatchId>("watch_id");
+		Id IActivateWatchRequest.WatchId => Self.RouteValues.Get<Id>("watch_id");
 			/// <summary>/_xpack/watcher/watch/{watch_id}/_activate</summary>
 ///<param name="watch_id"> this parameter is required</param>
-		public XpackWatcherActivateWatchDescriptor(WatchId watch_id) : base(r=>r.Required("watch_id", watch_id)){}
+		public ActivateWatchDescriptor(Id watch_id) : base(r=>r.Required("watch_id", watch_id)){}
 		
 
 		
 		///<summary>Explicit operation timeout for connection to master node</summary>
-		public XpackWatcherActivateWatchDescriptor MasterTimeout(Time master_timeout) => AssignParam(p=>p.MasterTimeout(master_timeout.ToTimeSpan()));
+		public ActivateWatchDescriptor MasterTimeout(Time master_timeout) => AssignParam(p=>p.MasterTimeout(master_timeout.ToTimeSpan()));
 
 		///<summary>The URL-encoded request definition</summary>
-		public XpackWatcherActivateWatchDescriptor Source(string source) => AssignParam(p=>p.Source(source));
+		public ActivateWatchDescriptor Source(string source) => AssignParam(p=>p.Source(source));
 
 		///<summary>Comma separated list of filters used to reduce the response returned by Elasticsearch</summary>
-		public XpackWatcherActivateWatchDescriptor FilterPath(string filter_path) => AssignParam(p=>p.FilterPath(filter_path));
-
-		//TODO THIS METHOD IS UNMAPPED!
-		
+		public ActivateWatchDescriptor FilterPath(string filter_path) => AssignParam(p=>p.FilterPath(filter_path));
 	
 	}
 	
 	///<summary>descriptor for XpackWatcherDeactivateWatch <pre>https://www.elastic.co/guide/en/watcher/current/api-rest.html#api-rest-deactivate-watch</pre></summary>
 	public partial class XpackWatcherDeactivateWatchDescriptor  : RequestDescriptorBase<XpackWatcherDeactivateWatchDescriptor,XpackWatcherDeactivateWatchRequestParameters, IXpackWatcherDeactivateWatchRequest>, IXpackWatcherDeactivateWatchRequest
 	{ 
-		WatchId IXpackWatcherDeactivateWatchRequest.WatchId => Self.RouteValues.Get<WatchId>("watch_id");
+		Id IXpackWatcherDeactivateWatchRequest.WatchId => Self.RouteValues.Get<Id>("watch_id");
 			/// <summary>/_xpack/watcher/watch/{watch_id}/_deactivate</summary>
 ///<param name="watch_id"> this parameter is required</param>
-		public XpackWatcherDeactivateWatchDescriptor(WatchId watch_id) : base(r=>r.Required("watch_id", watch_id)){}
+		public XpackWatcherDeactivateWatchDescriptor(Id watch_id) : base(r=>r.Required("watch_id", watch_id)){}
 		
 
 		
@@ -5595,29 +5592,26 @@ namespace Nest
 	}
 	
 	///<summary>descriptor for XpackWatcherPutWatch <pre>http://www.elastic.co/guide/en/watcher/current/appendix-api-put-watch.html</pre></summary>
-	public partial class XpackWatcherPutWatchDescriptor  : RequestDescriptorBase<XpackWatcherPutWatchDescriptor,XpackWatcherPutWatchRequestParameters, IXpackWatcherPutWatchRequest>, IXpackWatcherPutWatchRequest
+	public partial class PutWatchDescriptor  : RequestDescriptorBase<PutWatchDescriptor,PutWatchRequestParameters, IPutWatchRequest>, IPutWatchRequest
 	{ 
-		Id IXpackWatcherPutWatchRequest.Id => Self.RouteValues.Get<Id>("id");
+		Id IPutWatchRequest.Id => Self.RouteValues.Get<Id>("id");
 			/// <summary>/_xpack/watcher/watch/{id}</summary>
 ///<param name="id"> this parameter is required</param>
-		public XpackWatcherPutWatchDescriptor(Id id) : base(r=>r.Required("id", id)){}
+		public PutWatchDescriptor(Id id) : base(r=>r.Required("id", id)){}
 		
 
 		
 		///<summary>Explicit operation timeout for connection to master node</summary>
-		public XpackWatcherPutWatchDescriptor MasterTimeout(Time master_timeout) => AssignParam(p=>p.MasterTimeout(master_timeout.ToTimeSpan()));
+		public PutWatchDescriptor MasterTimeout(Time master_timeout) => AssignParam(p=>p.MasterTimeout(master_timeout.ToTimeSpan()));
 
 		///<summary>Specify whether the watch is in/active by default</summary>
-		public XpackWatcherPutWatchDescriptor Active(bool active = true) => AssignParam(p=>p.Active(active));
+		public PutWatchDescriptor Active(bool active = true) => AssignParam(p=>p.Active(active));
 
 		///<summary>The URL-encoded request definition</summary>
-		public XpackWatcherPutWatchDescriptor Source(string source) => AssignParam(p=>p.Source(source));
+		public PutWatchDescriptor Source(string source) => AssignParam(p=>p.Source(source));
 
 		///<summary>Comma separated list of filters used to reduce the response returned by Elasticsearch</summary>
-		public XpackWatcherPutWatchDescriptor FilterPath(string filter_path) => AssignParam(p=>p.FilterPath(filter_path));
-
-		//TODO THIS METHOD IS UNMAPPED!
-		
+		public PutWatchDescriptor FilterPath(string filter_path) => AssignParam(p=>p.FilterPath(filter_path));
 	
 	}
 	

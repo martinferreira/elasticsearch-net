@@ -727,6 +727,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ClientConcepts\Connection\" />
+    <Folder Include="XPack\Watcher\" />
   </ItemGroup>
   <Import Project="..\outputpath.props" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

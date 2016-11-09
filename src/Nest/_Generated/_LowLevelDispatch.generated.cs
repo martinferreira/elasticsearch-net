@@ -3739,7 +3739,7 @@ namespace Nest
 			throw InvalidDispatch("XpackWatcherAckWatch", p, new [] { PUT, POST }, "/_xpack/watcher/watch/{watch_id}/_ack", "/_xpack/watcher/watch/{watch_id}/_ack/{action_id}");
 		}
 		
-		internal ElasticsearchResponse<T> XpackWatcherActivateWatchDispatch<T>(IRequest<XpackWatcherActivateWatchRequestParameters> p ) where T : class
+		internal ElasticsearchResponse<T> XpackWatcherActivateWatchDispatch<T>(IRequest<ActivateWatchRequestParameters> p ) where T : class
 		{
 			switch(p.HttpMethod)
 			{
@@ -3755,7 +3755,7 @@ namespace Nest
 			throw InvalidDispatch("XpackWatcherActivateWatch", p, new [] { PUT, POST }, "/_xpack/watcher/watch/{watch_id}/_activate");
 		}
 		
-		internal Task<ElasticsearchResponse<T>> XpackWatcherActivateWatchDispatchAsync<T>(IRequest<XpackWatcherActivateWatchRequestParameters> p , CancellationToken cancellationToken) where T : class
+		internal Task<ElasticsearchResponse<T>> XpackWatcherActivateWatchDispatchAsync<T>(IRequest<ActivateWatchRequestParameters> p , CancellationToken cancellationToken) where T : class
 		{
 			switch(p.HttpMethod)
 			{
@@ -3883,7 +3883,7 @@ namespace Nest
 			throw InvalidDispatch("XpackWatcherGetWatch", p, new [] { GET }, "/_xpack/watcher/watch/{id}");
 		}
 		
-		internal ElasticsearchResponse<T> XpackWatcherPutWatchDispatch<T>(IRequest<XpackWatcherPutWatchRequestParameters> p , PostData<object> body) where T : class
+		internal ElasticsearchResponse<T> XpackWatcherPutWatchDispatch<T>(IRequest<PutWatchRequestParameters> p , PostData<object> body) where T : class
 		{
 			switch(p.HttpMethod)
 			{
@@ -3899,7 +3899,7 @@ namespace Nest
 			throw InvalidDispatch("XpackWatcherPutWatch", p, new [] { PUT, POST }, "/_xpack/watcher/watch/{id}");
 		}
 		
-		internal Task<ElasticsearchResponse<T>> XpackWatcherPutWatchDispatchAsync<T>(IRequest<XpackWatcherPutWatchRequestParameters> p , PostData<object> body, CancellationToken cancellationToken) where T : class
+		internal Task<ElasticsearchResponse<T>> XpackWatcherPutWatchDispatchAsync<T>(IRequest<PutWatchRequestParameters> p , PostData<object> body, CancellationToken cancellationToken) where T : class
 		{
 			switch(p.HttpMethod)
 			{

@@ -5233,20 +5233,20 @@ namespace Elasticsearch.Net
 	///https://www.elastic.co/guide/en/watcher/current/api-rest.html#api-rest-activate-watch
 	///</pre>
 	///</summary>
-	public class XpackWatcherActivateWatchRequestParameters : FluentRequestParameters<XpackWatcherActivateWatchRequestParameters> 
+	public class ActivateWatchRequestParameters : FluentRequestParameters<ActivateWatchRequestParameters> 
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
 		
 		///<summary>Explicit operation timeout for connection to master node</summary>
-		public XpackWatcherActivateWatchRequestParameters MasterTimeout(TimeSpan master_timeout) => this.AddQueryString("master_timeout", master_timeout.ToTimeUnit());
+		public ActivateWatchRequestParameters MasterTimeout(TimeSpan master_timeout) => this.AddQueryString("master_timeout", master_timeout.ToTimeUnit());
 		
 		
 		///<summary>The URL-encoded request definition</summary>
-		public XpackWatcherActivateWatchRequestParameters Source(string source) => this.AddQueryString("source", source);
+		public ActivateWatchRequestParameters Source(string source) => this.AddQueryString("source", source);
 		
 		
 		///<summary>Comma separated list of filters used to reduce the response returned by Elasticsearch</summary>
-		public XpackWatcherActivateWatchRequestParameters FilterPath(string filter_path) => this.AddQueryString("filter_path", filter_path);
+		public ActivateWatchRequestParameters FilterPath(string filter_path) => this.AddQueryString("filter_path", filter_path);
 		
 	}
 	
@@ -5339,24 +5339,24 @@ namespace Elasticsearch.Net
 	///http://www.elastic.co/guide/en/watcher/current/appendix-api-put-watch.html
 	///</pre>
 	///</summary>
-	public class XpackWatcherPutWatchRequestParameters : FluentRequestParameters<XpackWatcherPutWatchRequestParameters> 
+	public class PutWatchRequestParameters : FluentRequestParameters<PutWatchRequestParameters> 
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
 		
 		///<summary>Explicit operation timeout for connection to master node</summary>
-		public XpackWatcherPutWatchRequestParameters MasterTimeout(TimeSpan master_timeout) => this.AddQueryString("master_timeout", master_timeout.ToTimeUnit());
+		public PutWatchRequestParameters MasterTimeout(TimeSpan master_timeout) => this.AddQueryString("master_timeout", master_timeout.ToTimeUnit());
 		
 		
 		///<summary>Specify whether the watch is in/active by default</summary>
-		public XpackWatcherPutWatchRequestParameters Active(bool active) => this.AddQueryString("active", active);
+		public PutWatchRequestParameters Active(bool active) => this.AddQueryString("active", active);
 		
 		
 		///<summary>The URL-encoded request definition</summary>
-		public XpackWatcherPutWatchRequestParameters Source(string source) => this.AddQueryString("source", source);
+		public PutWatchRequestParameters Source(string source) => this.AddQueryString("source", source);
 		
 		
 		///<summary>Comma separated list of filters used to reduce the response returned by Elasticsearch</summary>
-		public XpackWatcherPutWatchRequestParameters FilterPath(string filter_path) => this.AddQueryString("filter_path", filter_path);
+		public PutWatchRequestParameters FilterPath(string filter_path) => this.AddQueryString("filter_path", filter_path);
 		
 	}
 	

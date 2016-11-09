@@ -8514,7 +8514,7 @@ namespace Elasticsearch.Net
 		///</summary>
 		///<param name="watch_id">Watch ID</param>
 		///<param name="requestParameters">A func that allows you to describe the querystring parameters &amp; request specific connection settings.</param>
-		ElasticsearchResponse<T> XpackWatcherActivateWatch<T>(string watch_id, Func<XpackWatcherActivateWatchRequestParameters, XpackWatcherActivateWatchRequestParameters> requestParameters = null) where T : class;
+		ElasticsearchResponse<T> XpackWatcherActivateWatch<T>(string watch_id, Func<ActivateWatchRequestParameters, ActivateWatchRequestParameters> requestParameters = null) where T : class;
 		
 		///<summary>Represents a PUT on /_xpack/watcher/watch/{watch_id}/_activate
 		///<para></para>Returns: A task of ElasticsearchResponse&lt;T&gt; where the behaviour depends on the type of T:
@@ -8527,7 +8527,7 @@ namespace Elasticsearch.Net
 		///</summary>
 		///<param name="watch_id">Watch ID</param>
 		///<param name="requestParameters">A func that allows you to describe the querystring parameters &amp; request specific connection settings.</param>
-		Task<ElasticsearchResponse<T>> XpackWatcherActivateWatchAsync<T>(string watch_id, Func<XpackWatcherActivateWatchRequestParameters, XpackWatcherActivateWatchRequestParameters> requestParameters = null, CancellationToken cancellationToken = default(CancellationToken)) where T : class;
+		Task<ElasticsearchResponse<T>> XpackWatcherActivateWatchAsync<T>(string watch_id, Func<ActivateWatchRequestParameters, ActivateWatchRequestParameters> requestParameters = null, CancellationToken cancellationToken = default(CancellationToken)) where T : class;
 		
 		///<summary>Represents a POST on /_xpack/watcher/watch/{watch_id}/_activate
 		///<para></para>Returns: ElasticsearchResponse&lt;T&gt; where the behavior depends on the type of T:
@@ -8540,7 +8540,7 @@ namespace Elasticsearch.Net
 		///</summary>
 		///<param name="watch_id">Watch ID</param>
 		///<param name="requestParameters">A func that allows you to describe the querystring parameters &amp; request specific connection settings.</param>
-		ElasticsearchResponse<T> XpackWatcherActivateWatchPost<T>(string watch_id, Func<XpackWatcherActivateWatchRequestParameters, XpackWatcherActivateWatchRequestParameters> requestParameters = null) where T : class;
+		ElasticsearchResponse<T> XpackWatcherActivateWatchPost<T>(string watch_id, Func<ActivateWatchRequestParameters, ActivateWatchRequestParameters> requestParameters = null) where T : class;
 		
 		///<summary>Represents a POST on /_xpack/watcher/watch/{watch_id}/_activate
 		///<para></para>Returns: A task of ElasticsearchResponse&lt;T&gt; where the behaviour depends on the type of T:
@@ -8553,7 +8553,7 @@ namespace Elasticsearch.Net
 		///</summary>
 		///<param name="watch_id">Watch ID</param>
 		///<param name="requestParameters">A func that allows you to describe the querystring parameters &amp; request specific connection settings.</param>
-		Task<ElasticsearchResponse<T>> XpackWatcherActivateWatchPostAsync<T>(string watch_id, Func<XpackWatcherActivateWatchRequestParameters, XpackWatcherActivateWatchRequestParameters> requestParameters = null, CancellationToken cancellationToken = default(CancellationToken)) where T : class;
+		Task<ElasticsearchResponse<T>> XpackWatcherActivateWatchPostAsync<T>(string watch_id, Func<ActivateWatchRequestParameters, ActivateWatchRequestParameters> requestParameters = null, CancellationToken cancellationToken = default(CancellationToken)) where T : class;
 		
 		///<summary>Represents a PUT on /_xpack/watcher/watch/{watch_id}/_deactivate
 		///<para></para>Returns: ElasticsearchResponse&lt;T&gt; where the behavior depends on the type of T:
@@ -8779,7 +8779,7 @@ namespace Elasticsearch.Net
 		///<param name="id">Watch ID</param>
 		///<param name="body">The watch</param>
 		///<param name="requestParameters">A func that allows you to describe the querystring parameters &amp; request specific connection settings.</param>
-		ElasticsearchResponse<T> XpackWatcherPutWatch<T>(string id, PostData<object> body, Func<XpackWatcherPutWatchRequestParameters, XpackWatcherPutWatchRequestParameters> requestParameters = null) where T : class;
+		ElasticsearchResponse<T> XpackWatcherPutWatch<T>(string id, PostData<object> body, Func<PutWatchRequestParameters, PutWatchRequestParameters> requestParameters = null) where T : class;
 		
 		///<summary>Represents a PUT on /_xpack/watcher/watch/{id}
 		///<para></para>Returns: A task of ElasticsearchResponse&lt;T&gt; where the behaviour depends on the type of T:
@@ -8793,7 +8793,7 @@ namespace Elasticsearch.Net
 		///<param name="id">Watch ID</param>
 		///<param name="body">The watch</param>
 		///<param name="requestParameters">A func that allows you to describe the querystring parameters &amp; request specific connection settings.</param>
-		Task<ElasticsearchResponse<T>> XpackWatcherPutWatchAsync<T>(string id, PostData<object> body, Func<XpackWatcherPutWatchRequestParameters, XpackWatcherPutWatchRequestParameters> requestParameters = null, CancellationToken cancellationToken = default(CancellationToken)) where T : class;
+		Task<ElasticsearchResponse<T>> XpackWatcherPutWatchAsync<T>(string id, PostData<object> body, Func<PutWatchRequestParameters, PutWatchRequestParameters> requestParameters = null, CancellationToken cancellationToken = default(CancellationToken)) where T : class;
 		
 		///<summary>Represents a POST on /_xpack/watcher/watch/{id}
 		///<para></para>Returns: ElasticsearchResponse&lt;T&gt; where the behavior depends on the type of T:
@@ -8807,7 +8807,7 @@ namespace Elasticsearch.Net
 		///<param name="id">Watch ID</param>
 		///<param name="body">The watch</param>
 		///<param name="requestParameters">A func that allows you to describe the querystring parameters &amp; request specific connection settings.</param>
-		ElasticsearchResponse<T> XpackWatcherPutWatchPost<T>(string id, PostData<object> body, Func<XpackWatcherPutWatchRequestParameters, XpackWatcherPutWatchRequestParameters> requestParameters = null) where T : class;
+		ElasticsearchResponse<T> XpackWatcherPutWatchPost<T>(string id, PostData<object> body, Func<PutWatchRequestParameters, PutWatchRequestParameters> requestParameters = null) where T : class;
 		
 		///<summary>Represents a POST on /_xpack/watcher/watch/{id}
 		///<para></para>Returns: A task of ElasticsearchResponse&lt;T&gt; where the behaviour depends on the type of T:
@@ -8821,7 +8821,7 @@ namespace Elasticsearch.Net
 		///<param name="id">Watch ID</param>
 		///<param name="body">The watch</param>
 		///<param name="requestParameters">A func that allows you to describe the querystring parameters &amp; request specific connection settings.</param>
-		Task<ElasticsearchResponse<T>> XpackWatcherPutWatchPostAsync<T>(string id, PostData<object> body, Func<XpackWatcherPutWatchRequestParameters, XpackWatcherPutWatchRequestParameters> requestParameters = null, CancellationToken cancellationToken = default(CancellationToken)) where T : class;
+		Task<ElasticsearchResponse<T>> XpackWatcherPutWatchPostAsync<T>(string id, PostData<object> body, Func<PutWatchRequestParameters, PutWatchRequestParameters> requestParameters = null, CancellationToken cancellationToken = default(CancellationToken)) where T : class;
 		
 		///<summary>Represents a POST on /_xpack/watcher/_restart
 		///<para></para>Returns: ElasticsearchResponse&lt;T&gt; where the behavior depends on the type of T:
